@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Financial Planning Calculator</title>
+    <title>Australian Family Financial Planning Calculator</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,7 +16,7 @@
             line-height: 1.6; 
             color: #333;
             background-color: #f5f5f5;
-                    }
+        }
         h1 { color: white; }
         .page { display: none; }
         .page.active { display: block; }
@@ -27,17 +27,7 @@
             font-weight: 500; 
             color: #555;
         }
-        }
         h2, h3 { color: #1976D2; }
-        .page { display: none; }
-        .page.active { display: block; }
-        .form-group { margin-bottom: 20px; }
-        label { 
-            display: block; 
-            margin-bottom: 5px; 
-            font-weight: 500; 
-            color: #555;
-        }
         input[type="number"], input[type="radio"], select { 
             width: 100%; 
             padding: 10px; 
@@ -141,23 +131,23 @@
     </style>
 </head>
 <body>
-  <div class="header">
-    <img src="logo.png" alt="FinMango and ModernHusbands Logo" class="logo" onclick="showPage('introPage')">
-    <div class="title-box">
-        <h1>Family Financial Planning Calculator</h1>
+    <div class="header">
+        <img src="logo.png" alt="FinMango and ModernHusbands Logo" class="logo" onclick="showPage('introPage')">
+        <div class="title-box">
+            <h1>Australian Family Financial Planning Calculator</h1>
+        </div>
     </div>
-</div>
     <div id="introPage" class="page active">
-        <h2>Financial Outlook for Couples</h2>
+        <h2>Financial Outlook for Australian Couples</h2>
         <div class="explanation">
-            <p><span class="material-icons">info</span> This calculator, a collaboration between <a href="https://finmango.org" target="_blank">FinMango</a> and <a href="https://modernhusbands.com" target="_blank">Modern Husbands</a>, helps dual-income families and couples evaluate their financial trajectory over the next 15 years. It considers factors such as household income, potential career breaks, childcare costs, healthcare expenses, basic living expenses, taxes, and retirement savings.</p>
-            <p>We've pre-populated the fields with example numbers. Feel free to adjust these to match your specific situation.</p>
+            <p><span class="material-icons">info</span> This calculator helps Australian dual-income families and couples evaluate their financial trajectory over the next 15 years. It considers factors such as household income, potential career breaks, childcare costs, healthcare expenses, basic living expenses, taxes, and superannuation.</p>
+            <p>We've pre-populated the fields with example numbers based on Australian averages. Feel free to adjust these to match your specific situation.</p>
         </div>
         <div class="button-container">
             <button onclick="showPage('incomePage')"><span class="material-icons">arrow_forward</span> Let's Get Started</button>
         </div>
     </div>
-<div id="incomePage" class="page">
+    <div id="incomePage" class="page">
         <h2>Household Income Information</h2>
         <div class="section">
             <h3>Family Type</h3>
@@ -166,22 +156,22 @@
                     <input type="radio" name="familyType" value="withChildren" checked> Family with Children
                 </label>
                 <label>
-                    <input type="radio" name="familyType" value="dink"> DINK (Dual Income No Kids)
+                    <input type="radio" name="familyType" value="dink"> DINK (Double Income No Kids)
                 </label>
             </div>
         </div>
         <div class="section">
             <h3>Household Income</h3>
             <div class="explanation">
-                <p><span class="material-icons">monetization_on</span> Enter the annual salary for each spouse/partner.</p>
+                <p><span class="material-icons">monetization_on</span> Enter the annual salary for each spouse/partner. The 12% Superannuation Guarantee is automatically included in calculations.</p>
             </div>
             <div class="form-group">
-                <label for="salary1">Spouse / Partner #1 Annual Salary ($)</label>
-                <input type="number" id="salary1" value="75000" step="0.01" required>
+                <label for="salary1">Spouse / Partner #1 Annual Salary (AUD)</label>
+                <input type="number" id="salary1" value="90000" step="0.01" required>
             </div>
             <div class="form-group">
-                <label for="salary2">Spouse / Partner #2 Annual Salary ($)</label>
-                <input type="number" id="salary2" value="65000" step="0.01" required>
+                <label for="salary2">Spouse / Partner #2 Annual Salary (AUD)</label>
+                <input type="number" id="salary2" value="80000" step="0.01" required>
             </div>
             <div class="form-group">
                 <label for="workforceLeaveDuration1">If Spouse / Partner #1 plans to leave the workforce without pay, enter the amount of time:</label>
@@ -221,7 +211,6 @@
             <button onclick="showPage('expensesPage')"><span class="material-icons">arrow_forward</span> Next: Expenses</button>
         </div>
     </div>
-
     <div id="expensesPage" class="page">
         <h2>Expenses</h2>
         <div id="childcareSection" class="section">
@@ -230,13 +219,13 @@
                 <p><span class="material-icons">child_care</span> Enter any additional annual childcare costs (e.g., daycare) beyond the baseline costs already included in our calculations. This will be added to our baseline for up to 5 years.</p>
             </div>
             <div class="form-group">
-                <label for="childCareCost">Additional Annual Childcare Cost ($)</label>
+                <label for="childCareCost">Additional Annual Childcare Cost (AUD)</label>
                 <div class="info-link">
-                    <a href="https://www.dol.gov/agencies/wb/topics/childcare/price-by-age-care-setting" target="_blank">
-                        <span class="material-icons">link</span> Childcare Prices by Age of Children and Care Setting
+                    <a href="https://www.care.com/en-au/explore/child-care-costs/" target="_blank">
+                        <span class="material-icons">link</span> Childcare Costs in Australia
                     </a>
                 </div>
-                <input type="number" id="childCareCost" value="20000" step="0.01" required>
+                <input type="number" id="childCareCost" value="15000" step="0.01" required>
             </div>
             <div class="form-group">
                 <label for="childCareYears">Number of Years Needing Additional Childcare (max 5)</label>
@@ -261,8 +250,8 @@
                 <p><span class="material-icons">home</span> Enter your total monthly basic living expenses, including healthcare costs. This should include your current costs for housing, transportation, food, utilities, and healthcare.</p>
             </div>
             <div class="form-group">
-                <label for="basicLivingExpenses">Total Monthly Basic Living Expenses (including Healthcare) ($)</label>
-                <input type="number" id="basicLivingExpenses" value="3483" step="0.01" required>
+                <label for="basicLivingExpenses">Total Monthly Basic Living Expenses (including Healthcare) (AUD)</label>
+                <input type="number" id="basicLivingExpenses" value="4500" step="0.01" required>
                 <div class="info-link">
                     <details>
                         <summary><span class="material-icons">info</span> What does this include?</summary>
@@ -272,9 +261,9 @@
                             <li>Transportation (car payments, insurance, public transit)</li>
                             <li>Food</li>
                             <li>Utilities</li>
-                            <li>Healthcare premiums and average out-of-pocket expenses</li>
+                            <li>Healthcare (including private health insurance if applicable)</li>
                         </ul>
-                        <p>The pre-filled value ($3483) is based on previous estimates: $1500 for housing, $500 for transportation, $800 for food and utilities, and $683 for healthcare (based on $5000 annual premium and $2000 annual out-of-pocket expenses, divided by 12).</p>
+                        <p>The pre-filled value (AUD 4500) is based on average Australian costs: AUD 2000 for housing, AUD 800 for transportation, AUD 1200 for food and utilities, and AUD 500 for healthcare.</p>
                         <p><strong>Note:</strong> Do not include any future child-related expenses in this total. Those are accounted for separately.</p>
                     </details>
                 </div>
@@ -285,34 +274,22 @@
             <button onclick="showPage('taxesPage')"><span class="material-icons">arrow_forward</span> Next: Taxes</button>
         </div>
     </div>
-<div id="taxesPage" class="page">
+
+    <div id="taxesPage" class="page">
         <h2>Taxes</h2>
         <div class="section">
             <h3>Tax Rates</h3>
             <div class="explanation">
-                <p><span class="material-icons">description</span> Enter your estimated tax rates. These are rough estimates and may not reflect exact tax calculations.</p>
+                <p><span class="material-icons">description</span> The calculator uses the Australian tax brackets for 2024-2025. You can adjust the Medicare levy if needed.</p>
             </div>
             <div class="form-group">
-                <label for="federalTaxRate">Estimated Federal Tax Rate (%)</label>
+                <label for="medicareLevyRate">Medicare Levy Rate (%)</label>
                 <div class="info-link">
-                    <a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets" target="_blank">
-                        <span class="material-icons">link</span> Federal Income Tax Brackets
+                    <a href="https://www.ato.gov.au/individuals/medicare-and-private-health-insurance/medicare-levy/" target="_blank">
+                        <span class="material-icons">link</span> Medicare Levy Information
                     </a>
                 </div>
-                <input type="number" id="federalTaxRate" value="22" step="0.01" required>
-            </div>
-            <div class="form-group">
-                <label for="stateTaxRate">Estimated State Tax Rate (%)</label>
-                <div class="info-link">
-                    <a href="https://help.nfc.usda.gov/systems/TAXES/index.php" target="_blank">
-                        <span class="material-icons">link</span> State Income Tax Brackets
-                    </a>
-                </div>
-                <input type="number" id="stateTaxRate" value="5" step="0.01" required>
-            </div>
-            <div class="form-group">
-                <label for="localTaxRate">Estimated Local Tax Rate (%)</label>
-                <input type="number" id="localTaxRate" value="1" step="0.01" required>
+                <input type="number" id="medicareLevyRate" value="2" step="0.01" required>
             </div>
         </div>
         <div class="button-container">
@@ -326,7 +303,7 @@
         <div class="section">
             <h3>Future Growth and Savings</h3>
             <div class="explanation">
-                <p><span class="material-icons">trending_up</span> Estimate how you think your salaries and expenses might change over time, and how much you plan to save for retirement.</p>
+                <p><span class="material-icons">trending_up</span> Estimate how you think your salaries and expenses might change over time. The 12% Superannuation Guarantee is automatically included in calculations.</p>
             </div>
             <div class="form-group">
                 <label for="salaryGrowth">Estimated Annual Salary Growth (%)</label>
@@ -341,20 +318,12 @@
                 <input type="number" id="livingExpensesGrowth" value="3" step="0.01" required>
             </div>
             <div class="form-group">
-                <label for="retirementContribution1">Spouse / Partner #1 Annual Retirement Contribution (%)</label>
-                <input type="number" id="retirementContribution1" value="6" step="0.01" required>
+                <label for="superContribution1">Spouse / Partner #1 Additional Voluntary Super Contribution (%)</label>
+                <input type="number" id="superContribution1" value="0" step="0.01" required>
             </div>
             <div class="form-group">
-                <label for="employerMatch1">Spouse / Partner #1 Employer Match (%)</label>
-                <input type="number" id="employerMatch1" value="5" step="0.01" required>
-            </div>
-            <div class="form-group">
-                <label for="retirementContribution2">Spouse / Partner #2 Annual Retirement Contribution (%)</label>
-                <input type="number" id="retirementContribution2" value="6" step="0.01" required>
-            </div>
-            <div class="form-group">
-                <label for="employerMatch2">Spouse / Partner #2 Employer Match (%)</label>
-                <input type="number" id="employerMatch2" value="5" step="0.01" required>
+                <label for="superContribution2">Spouse / Partner #2 Additional Voluntary Super Contribution (%)</label>
+                <input type="number" id="superContribution2" value="0" step="0.01" required>
             </div>
         </div>
         <div class="button-container">
@@ -362,29 +331,27 @@
             <button onclick="calculateResults()"><span class="material-icons">calculate</span> Calculate Results</button>
         </div>
     </div>
-
     <div id="resultsPage" class="page">
         <h2>Projected Household Finances</h2>
         <div class="explanation">
-            <p><span class="material-icons">info</span> Below is a projection of your household finances over the next 15 years, including income, expenses, taxes, retirement savings, and adjusting for inflation.</p>
-            <p>The Annual Cost Per Child combines your entered childcare costs with the annual cost of one child. According to the USDA, the 2024 inflation-adjusted estimated annual cost per child is around $18,000. Remember, this estimate is based on your provided information and uses simplified tax calculations.</p>
-            <p><a href="https://lp.constantcontactpages.com/sl/yL766xD" target="_blank"><span class="material-icons">download</span> Download The Ultimate Guide to Family Financial Planning</a> for free. We designed it to complement this calculator. </p>
+            <p><span class="material-icons">info</span> Below is a projection of your household finances over the next 15 years, including income, expenses, taxes, superannuation, and adjusting for inflation.</p>
+            <p>The Annual Cost Per Child combines your entered childcare costs with the annual cost of one child. According to the Australian Institute of Family Studies, the 2024 inflation-adjusted estimated annual cost per child is around AUD 16,000. Remember, this estimate is based on your provided information and uses simplified tax calculations.</p>
         </div>
         <div class="section">
-            <h3>Projected: Income Earned Over 15 Years and Retirement Balance After 15 Years</h3>
+            <h3>Projected: Income Earned Over 15 Years and Super Balance After 15 Years</h3>
             <div style="height: 300px; max-width: 600px; margin: auto;">
                 <canvas id="financialImpactChart"></canvas>
             </div>
             <div class="explanation">
-                <p>This chart compares your current plan with two alternative scenarios over 15 years, including accumulated retirement savings with a conservative 8% annual return:</p>
+                <p>This chart compares your current plan with two alternative scenarios over 15 years, including accumulated superannuation with a conservative 7% annual return:</p>
                 <ul>
                     <li><strong>Current Plan:</strong> Your inputted scenario.</li>
                     <li><strong>Continuous Employment:</strong> Both partners work continuously, using childcare services.</li>
-                    <li><strong>DINK Scenario:</strong> Dual Income, No Kids - for comparison purposes.</li>
+                    <li><strong>DINK Scenario:</strong> Double Income, No Kids - for comparison purposes.</li>
                 </ul>
             </div>
         </div>
-<div class="section">
+        <div class="section">
             <h3>Detailed Yearly Projection</h3>
             <div class="table-container">
                 <table id="resultsTable">
@@ -395,7 +362,7 @@
                             <th>Taxes</th>
                             <th>Annual Cost Per Child</th>
                             <th>Basic Living Expenses (incl. Healthcare)</th>
-                            <th>Retirement Savings</th>
+                            <th>Super Contributions</th>
                             <th>Balance</th>
                         </tr>
                     </thead>
@@ -404,9 +371,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="explanation">
-            <p><a href="https://finmango.org" target="_blank">FinMango</a> is a nonprofit advancing financial health worldwide and <a href="https://modernhusbands.com" target="_blank">Modern Husbands</a> helps couples manage their money and their home.</p>
         </div>
         <div class="button-container">
             <button onclick="showPage('projectionPage')"><span class="material-icons">arrow_back</span> Previous</button>
@@ -424,6 +388,15 @@
             }
         }
 
+        function calculateTax(income) {
+            // 2024-2025 Australian tax brackets
+            if (income <= 18200) return 0;
+            if (income <= 45000) return (income - 18200) * 0.19;
+            if (income <= 120000) return 5092 + (income - 45000) * 0.325;
+            if (income <= 180000) return 29467 + (income - 120000) * 0.37;
+            return 51667 + (income - 180000) * 0.45;
+        }
+
         function calculateResults() {
             const isDINK = document.querySelector('input[name="familyType"]:checked').value === 'dink';
             const salary1 = parseFloat(document.getElementById('salary1').value);
@@ -433,28 +406,25 @@
             const additionalChildCareCost = isDINK ? 0 : parseFloat(document.getElementById('childCareCost').value);
             const childCareYears = isDINK ? 0 : parseFloat(document.getElementById('childCareYears').value);
             const basicLivingExpenses = parseFloat(document.getElementById('basicLivingExpenses').value) * 12;
-            const federalTaxRate = parseFloat(document.getElementById('federalTaxRate').value) / 100;
-            const stateTaxRate = parseFloat(document.getElementById('stateTaxRate').value) / 100;
-            const localTaxRate = parseFloat(document.getElementById('localTaxRate').value) / 100;
+            const medicareLevyRate = parseFloat(document.getElementById('medicareLevyRate').value) / 100;
             const salaryGrowth = parseFloat(document.getElementById('salaryGrowth').value) / 100;
             const childCareGrowth = parseFloat(document.getElementById('childCareGrowth').value) / 100;
             const livingExpensesGrowth = parseFloat(document.getElementById('livingExpensesGrowth').value) / 100;
-            const retirementContribution1 = parseFloat(document.getElementById('retirementContribution1').value) / 100;
-            const employerMatch1 = parseFloat(document.getElementById('employerMatch1').value) / 100;
-            const retirementContribution2 = parseFloat(document.getElementById('retirementContribution2').value) / 100;
-            const employerMatch2 = parseFloat(document.getElementById('employerMatch2').value) / 100;
+            const superContribution1 = parseFloat(document.getElementById('superContribution1').value) / 100;
+            const superContribution2 = parseFloat(document.getElementById('superContribution2').value) / 100;
 
-            const baselineChildCareCosts = [14440, 14832, 15277, 15735, 16207, 20866, 21493, 22138, 22802, 23486, 24190, 24916, 25664, 26434, 27227];
+            const baselineChildCareCosts = [16000, 16480, 16974, 17484, 18008, 18548, 19105, 19678, 20268, 20876, 21502, 22147, 22812, 23496, 24201];
             const backToWorkYear = Math.max(workforceLeaveDuration1, workforceLeaveDuration2) + 1;
-            const conservativeReturnRate = 0.08; // 8% annual return on retirement savings
+            const conservativeReturnRate = 0.07; // 7% annual return on super
+            const superGuarantee = 0.12; // 12% superannuation guarantee
 
             let results = '';
             let currentScenarioTotal = 0;
-            let currentScenarioRetirementSavings = 0;
+            let currentScenarioSuperBalance = 0;
             let continuousEmploymentTotal = 0;
-            let continuousEmploymentRetirementSavings = 0;
+            let continuousEmploymentSuperBalance = 0;
             let dinkScenarioTotal = 0;
-            let dinkScenarioRetirementSavings = 0;
+            let dinkScenarioSuperBalance = 0;
 
             for (let year = 1; year <= 15; year++) {
                 let projectedSalary1 = salary1 * Math.pow(1 + salaryGrowth, year - 1);
@@ -478,54 +448,69 @@
 
                 const projectedBasicLivingExpenses = basicLivingExpenses * Math.pow(1 + livingExpensesGrowth, year - 1);
 
-                const retirementSavings1 = projectedSalary1 * (retirementContribution1 + Math.min(retirementContribution1, employerMatch1));
-                const retirementSavings2 = projectedSalary2 * (retirementContribution2 + Math.min(retirementContribution2, employerMatch2));
-                const totalRetirementSavings = retirementSavings1 + retirementSavings2;
+                // Calculate superannuation contributions
+                const superContributionEmployer1 = projectedSalary1 * superGuarantee;
+                const superContributionEmployer2 = projectedSalary2 * superGuarantee;
+                const superContributionVoluntary1 = projectedSalary1 * superContribution1;
+                const superContributionVoluntary2 = projectedSalary2 * superContribution2;
+                const totalSuperContribution = superContributionEmployer1 + superContributionEmployer2 + superContributionVoluntary1 + superContributionVoluntary2;
 
-                const taxableIncome = grossIncome - totalRetirementSavings;
-                const taxes = taxableIncome * (federalTaxRate + stateTaxRate + localTaxRate);
+                // Calculate taxes
+                const taxableIncome1 = projectedSalary1 - superContributionVoluntary1;
+                const taxableIncome2 = projectedSalary2 - superContributionVoluntary2;
+                const incomeTax1 = calculateTax(taxableIncome1);
+                const incomeTax2 = calculateTax(taxableIncome2);
+                const medicareLevyTax1 = taxableIncome1 * medicareLevyRate;
+                const medicareLevyTax2 = taxableIncome2 * medicareLevyRate;
+                const totalTax = incomeTax1 + incomeTax2 + medicareLevyTax1 + medicareLevyTax2;
 
-                const netIncome = grossIncome - taxes - projectedChildCareCost - projectedBasicLivingExpenses - totalRetirementSavings;
+                const netIncome = grossIncome - totalTax - projectedChildCareCost - projectedBasicLivingExpenses - superContributionVoluntary1 - superContributionVoluntary2;
 
                 currentScenarioTotal += netIncome;
-                currentScenarioRetirementSavings = (currentScenarioRetirementSavings + totalRetirementSavings) * (1 + conservativeReturnRate);
+                currentScenarioSuperBalance = (currentScenarioSuperBalance + totalSuperContribution) * (1 + conservativeReturnRate);
 
                 // Calculate continuous employment scenario
                 const continuousEmploymentSalary1 = salary1 * Math.pow(1 + salaryGrowth, year - 1);
                 const continuousEmploymentSalary2 = salary2 * Math.pow(1 + salaryGrowth, year - 1);
                 const continuousEmploymentGrossIncome = continuousEmploymentSalary1 + continuousEmploymentSalary2;
-                const continuousEmploymentTaxableIncome = continuousEmploymentGrossIncome - totalRetirementSavings;
-                const continuousEmploymentTaxes = continuousEmploymentTaxableIncome * (federalTaxRate + stateTaxRate + localTaxRate);
-                const continuousEmploymentNetIncome = continuousEmploymentGrossIncome - continuousEmploymentTaxes - projectedChildCareCost - projectedBasicLivingExpenses - totalRetirementSavings;
+                const continuousEmploymentSuperContribution = (continuousEmploymentSalary1 + continuousEmploymentSalary2) * (superGuarantee + superContribution1 + superContribution2);
+                const continuousEmploymentTaxableIncome1 = continuousEmploymentSalary1 - (continuousEmploymentSalary1 * superContribution1);
+                const continuousEmploymentTaxableIncome2 = continuousEmploymentSalary2 - (continuousEmploymentSalary2 * superContribution2);
+                const continuousEmploymentIncomeTax1 = calculateTax(continuousEmploymentTaxableIncome1);
+                const continuousEmploymentIncomeTax2 = calculateTax(continuousEmploymentTaxableIncome2);
+                const continuousEmploymentMedicareLevyTax1 = continuousEmploymentTaxableIncome1 * medicareLevyRate;
+                const continuousEmploymentMedicareLevyTax2 = continuousEmploymentTaxableIncome2 * medicareLevyRate;
+                const continuousEmploymentTotalTax = continuousEmploymentIncomeTax1 + continuousEmploymentIncomeTax2 + continuousEmploymentMedicareLevyTax1 + continuousEmploymentMedicareLevyTax2;
+                const continuousEmploymentNetIncome = continuousEmploymentGrossIncome - continuousEmploymentTotalTax - projectedChildCareCost - projectedBasicLivingExpenses - (continuousEmploymentSalary1 * superContribution1) - (continuousEmploymentSalary2 * superContribution2);
                 continuousEmploymentTotal += continuousEmploymentNetIncome;
-                continuousEmploymentRetirementSavings = (continuousEmploymentRetirementSavings + totalRetirementSavings) * (1 + conservativeReturnRate);
+                continuousEmploymentSuperBalance = (continuousEmploymentSuperBalance + continuousEmploymentSuperContribution) * (1 + conservativeReturnRate);
 
                 // Calculate DINK scenario
-                const dinkNetIncome = continuousEmploymentGrossIncome - continuousEmploymentTaxes - projectedBasicLivingExpenses - totalRetirementSavings;
+                const dinkNetIncome = continuousEmploymentGrossIncome - continuousEmploymentTotalTax - projectedBasicLivingExpenses - (continuousEmploymentSalary1 * superContribution1) - (continuousEmploymentSalary2 * superContribution2);
                 dinkScenarioTotal += dinkNetIncome;
-                dinkScenarioRetirementSavings = (dinkScenarioRetirementSavings + totalRetirementSavings) * (1 + conservativeReturnRate);
+                dinkScenarioSuperBalance = (dinkScenarioSuperBalance + continuousEmploymentSuperContribution) * (1 + conservativeReturnRate);
 
                 results += `<tr>
                     <td>${year}</td>
                     <td>$${Math.round(grossIncome).toLocaleString()}</td>
-                    <td>$${Math.round(taxes).toLocaleString()}</td>
+                    <td>$${Math.round(totalTax).toLocaleString()}</td>
                     <td>$${Math.round(projectedChildCareCost).toLocaleString()}</td>
                     <td>$${Math.round(projectedBasicLivingExpenses).toLocaleString()}</td>
-                    <td>$${Math.round(totalRetirementSavings).toLocaleString()}</td>
+                    <td>$${Math.round(totalSuperContribution).toLocaleString()}</td>
                     <td>$${Math.round(netIncome).toLocaleString()}</td>
                 </tr>`;
             }
 
             document.getElementById('resultsTable').getElementsByTagName('tbody')[0].innerHTML = results;
 
-            createFinancialImpactChart(currentScenarioTotal, currentScenarioRetirementSavings, 
-                                       continuousEmploymentTotal, continuousEmploymentRetirementSavings, 
-                                       dinkScenarioTotal, dinkScenarioRetirementSavings);
+            createFinancialImpactChart(currentScenarioTotal, currentScenarioSuperBalance, 
+                                       continuousEmploymentTotal, continuousEmploymentSuperBalance, 
+                                       dinkScenarioTotal, dinkScenarioSuperBalance);
 
             showPage('resultsPage');
         }
 
-        function createFinancialImpactChart(currentTotal, currentRetirement, continuousTotal, continuousRetirement, dinkTotal, dinkRetirement) {
+        function createFinancialImpactChart(currentTotal, currentSuper, continuousTotal, continuousSuper, dinkTotal, dinkSuper) {
             const ctx = document.getElementById('financialImpactChart').getContext('2d');
             new Chart(ctx, {
                 type: 'bar',
@@ -534,9 +519,9 @@
                     datasets: [{
                         label: 'Total Financial Impact Over 15 Years',
                         data: [
-                            Math.round(currentTotal + currentRetirement),
-                            Math.round(continuousTotal + continuousRetirement),
-                            Math.round(dinkTotal + dinkRetirement)
+                            Math.round(currentTotal + currentSuper),
+                            Math.round(continuousTotal + continuousSuper),
+                            Math.round(dinkTotal + dinkSuper)
                         ],
                         backgroundColor: [
                             'rgba(25, 118, 210, 0.8)',
@@ -574,31 +559,14 @@
                                     let label = context.dataset.label || '';
                                     if (label) {
                                         label += ': ';
-                    }
-                    if (context.parsed.y !== null) {
-                        label += '$' + context.parsed.y.toLocaleString();
-                    }
-                    return label;
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += '$' + context.parsed.y.toLocaleString();
+                                    }
+                                    return label;
                                 }
                             }
                         }
                     }
                 }
             });
-        }
-
-        // Initialize the calculator
-        document.addEventListener('DOMContentLoaded', function() {
-            showPage('introPage');
-        });
-
-        // Add event listeners for family type radio buttons
-        document.querySelectorAll('input[name="familyType"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                const isDINK = this.value === 'dink';
-                document.getElementById('childcareSection').style.display = isDINK ? 'none' : 'block';
-            });
-        });
-    </script>
-</body>
-</html>
