@@ -132,7 +132,7 @@
 </head>
 <body>
     <div class="header">
-        <img src="logo.png" alt="FinMango and ModernHusbands Logo" class="logo" onclick="showPage('introPage')">
+        <img src="logo.png" alt="FinMango and ModernHusbands Logo" class="logo" data-page="introPage">
         <div class="title-box">
             <h1>Australian Family Financial Planning Calculator</h1>
         </div>
@@ -144,7 +144,7 @@
             <p>We've pre-populated the fields with example numbers based on Australian averages. Feel free to adjust these to match your specific situation.</p>
         </div>
         <div class="button-container">
-            <button onclick="showPage('incomePage')"><span class="material-icons">arrow_forward</span> Let's Get Started</button>
+            <button data-page="incomePage"><span class="material-icons">arrow_forward</span> Let's Get Started</button>
         </div>
     </div>
     <div id="incomePage" class="page">
@@ -207,8 +207,8 @@
             </div>
         </div>
         <div class="button-container">
-            <button onclick="showPage('introPage')"><span class="material-icons">arrow_back</span> Previous</button>
-            <button onclick="showPage('expensesPage')"><span class="material-icons">arrow_forward</span> Next: Expenses</button>
+            <button data-page="introPage"><span class="material-icons">arrow_back</span> Previous</button>
+            <button data-page="expensesPage"><span class="material-icons">arrow_forward</span> Next: Expenses</button>
         </div>
     </div>
     <div id="expensesPage" class="page">
@@ -270,8 +270,8 @@
             </div>
         </div>
         <div class="button-container">
-            <button onclick="showPage('incomePage')"><span class="material-icons">arrow_back</span> Previous</button>
-            <button onclick="showPage('taxesPage')"><span class="material-icons">arrow_forward</span> Next: Taxes</button>
+            <button data-page="incomePage"><span class="material-icons">arrow_back</span> Previous</button>
+            <button data-page="taxesPage"><span class="material-icons">arrow_forward</span> Next: Taxes</button>
         </div>
     </div>
 
@@ -293,8 +293,8 @@
             </div>
         </div>
         <div class="button-container">
-            <button onclick="showPage('expensesPage')"><span class="material-icons">arrow_back</span> Previous</button>
-            <button onclick="showPage('projectionPage')"><span class="material-icons">arrow_forward</span> Next: Growth Projections</button>
+            <button data-page="expensesPage"><span class="material-icons">arrow_back</span> Previous</button>
+            <button data-page="projectionPage"><span class="material-icons">arrow_forward</span> Next: Growth Projections</button>
         </div>
     </div>
 
@@ -303,7 +303,7 @@
         <div class="section">
             <h3>Future Growth and Savings</h3>
             <div class="explanation">
-                <p><span class="material-icons">trending_up</span> Estimate how you think your salaries and expenses might change over time. The 12% Superannuation Guarantee is automatically included in calculations.</p>
+    <p><span class="material-icons">trending_up</span> Estimate how you think your salaries and expenses might change over time. The 12% Superannuation Guarantee is automatically included in calculations.</p>
             </div>
             <div class="form-group">
                 <label for="salaryGrowth">Estimated Annual Salary Growth (%)</label>
@@ -327,7 +327,7 @@
             </div>
         </div>
         <div class="button-container">
-            <button onclick="showPage('taxesPage')"><span class="material-icons">arrow_back</span> Previous</button>
+            <button data-page="taxesPage"><span class="material-icons">arrow_back</span> Previous</button>
             <button onclick="calculateResults()"><span class="material-icons">calculate</span> Calculate Results</button>
         </div>
     </div>
@@ -373,18 +373,29 @@
             </div>
         </div>
         <div class="button-container">
-            <button onclick="showPage('projectionPage')"><span class="material-icons">arrow_back</span> Previous</button>
-            <button onclick="showPage('incomePage')"><span class="material-icons">refresh</span> Start Over</button>
+            <button data-page="projectionPage"><span class="material-icons">arrow_back</span> Previous</button>
+            <button data-page="incomePage"><span class="material-icons">refresh</span> Start Over</button>
         </div>
     </div>
 
     <script>
         function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
+            console.log('Showing page:', pageId); // Add this line for debugging
+            document.querySelectorAll('.page').forEach(page => {
+                page.style.display = 'none';
+            });
+            const pageToShow = document.getElementById(pageId);
+            if (pageToShow) {
+                pageToShow.style.display = 'block';
+            } else {
+                console.error('Page not found:', pageId);
+            }
             if (pageId === 'expensesPage') {
                 const isDINK = document.querySelector('input[name="familyType"]:checked').value === 'dink';
-                document.getElementById('childcareSection').style.display = isDINK ? 'none' : 'block';
+                const childcareSection = document.getElementById('childcareSection');
+                if (childcareSection) {
+                    childcareSection.style.display = isDINK ? 'none' : 'block';
+                }
             }
         }
 
@@ -570,3 +581,28 @@
                     }
                 }
             });
+        }
+
+        // Add event listeners to all buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const pageId = this.getAttribute('data-page');
+                    if (pageId) {
+                        showPage(pageId);
+                    }
+                });
+            });
+            
+            // Add event listener for logo click
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.addEventListener('click', function() {
+                    showPage('introPage');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
